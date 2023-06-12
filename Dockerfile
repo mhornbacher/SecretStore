@@ -1,9 +1,11 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+﻿ARG DOTNET_VERSION=7.0
+
+FROM mcr.microsoft.com/dotnet/aspnet:${DOTNET_VERSION} AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS publish
+FROM mcr.microsoft.com/dotnet/sdk:${DOTNET_VERSION} AS publish
 WORKDIR /src
 COPY . .
 WORKDIR "/src/SecretStore.Web"

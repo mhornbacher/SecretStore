@@ -1,0 +1,17 @@
+
+[*]
+
+# Microsoft .NET properties
+csharp_new_line_before_members_in_object_initializers = false
+csharp_preferred_modifier_order = public, private, protected, internal, file, new, async, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, static, required:suggestion
+csharp_preserve_single_line_blocks = true
+
+# ReSharper properties
+resharper_csharp_insert_final_newline = true
+resharper_instance_members_qualify_declared_in = 
+resharper_keep_existing_declaration_block_arrangement = false
+resharper_keep_existing_enum_arrangement = false
+resharper_place_expr_method_on_single_line = false
+resharper_place_simple_embedded_statement_on_same_line = false
+resharper_place_simple_initializer_on_single_line = false
+resharper_wrap_object_and_collection_initializer_style = chop_always
