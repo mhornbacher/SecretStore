@@ -11,8 +11,6 @@ on:
   push:
   pull_request:
     branches: [ "main" ]
-  workflow_run:
-    branches: [ "main" ]
 
 jobs:
   build-and-test:
