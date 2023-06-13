@@ -27,12 +27,12 @@ namespace SecretStore.Web.Controllers
             try
             {
                 var secret = await _storage.LoadAsync(secretId);
-                _logger.LogInformation("LOADED: {secret_id}", secretId);
+                _logger.LogInformation("LOADED: {SecretId}", secretId);
                 return Ok(FormatSecret(secret));
             }
             catch (StorageException)
             {
-                _logger.LogDebug("secret not found for {secret_id}", secretId);
+                _logger.LogDebug("secret not found for {SecretId}", secretId);
                 return NotFound(Error("secret_id does not exist"));
             }
         }
@@ -44,12 +44,12 @@ namespace SecretStore.Web.Controllers
             {
                 var secret = await _secret.GenerateAsync();
                 await _storage.StoreAsync(secretId, secret);
-                _logger.LogInformation("CREATED: {secret_id}", secretId);
+                _logger.LogInformation("CREATED: {SecretId}", secretId);
                 return Ok(FormatSecret(secret));
             }
             catch (StorageException)
             {
-                _logger.LogDebug("secret already exists for {secret_id}", secretId);
+                _logger.LogDebug("secret already exists for {SecretId}", secretId);
                 return BadRequest(Error("secret_id already exists"));
             }
         }
@@ -60,12 +60,12 @@ namespace SecretStore.Web.Controllers
             try
             {
                 await _storage.RemoveAsync(secretId);
-                _logger.LogInformation("DELETED: {secret_id}", secretId);
+                _logger.LogInformation("DELETED: {SecretId}", secretId);
                 return Ok();
             }
             catch (StorageException)
             {
-                _logger.LogDebug("secret not found for {secret_id}", secretId);
+                _logger.LogDebug("secret not found for {SecretId}", secretId);
                 return BadRequest(Error("secret_id does not exist"));
             }
         }
